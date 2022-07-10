@@ -18,23 +18,16 @@ public class ArticleCommentService {
     private final ArticleCommentRepository articleCommentRepository;
 
     @Transactional(readOnly = true)
-<<<<<<< Updated upstream
-    public List<ArticleCommentDto> searchArticleComment(Long articleId) {
-=======
     public List<ArticleCommentDto> searchArticleComments(Long articleId) {
->>>>>>> Stashed changes
         return List.of();
     }
 
     public void saveArticleComment(ArticleCommentDto dto) {
     }
 
-<<<<<<< Updated upstream
-=======
     public void updateArticleComment(ArticleCommentDto dto) {
     }
 
     public void deleteArticleComment(Long articleCommentId) {
     }
->>>>>>> Stashed changes
 }

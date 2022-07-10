@@ -1,18 +1,5 @@
 package com.neo.springboard.dto;
 
-<<<<<<< Updated upstream
-import java.time.LocalDateTime;
-
-public record ArticleDto(
-        LocalDateTime createdAt,
-        String createdBy,
-        String title,
-        String content,
-        String hashtag
-) {
-    public static ArticleDto of(LocalDateTime createdAt, String createdBy, String title, String content, String hashtag) {
-        return new ArticleDto(createdAt, createdBy, title, content, hashtag);
-=======
 import com.neo.springboard.domain.Article;
 
 import java.time.LocalDateTime;
@@ -53,7 +40,6 @@ public record ArticleDto(
                 content,
                 hashtag
         );
->>>>>>> Stashed changes
     }
 
 

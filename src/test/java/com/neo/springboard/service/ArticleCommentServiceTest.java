@@ -2,13 +2,9 @@ package com.neo.springboard.service;
 
 import com.neo.springboard.domain.Article;
 import com.neo.springboard.domain.ArticleComment;
-<<<<<<< Updated upstream
-import com.neo.springboard.dto.ArticleCommentDto;
-=======
 import com.neo.springboard.domain.UserAccount;
 import com.neo.springboard.dto.ArticleCommentDto;
 import com.neo.springboard.dto.UserAccountDto;
->>>>>>> Stashed changes
 import com.neo.springboard.repository.ArticleCommentRepository;
 import com.neo.springboard.repository.ArticleRepository;
 import org.junit.jupiter.api.DisplayName;
@@ -18,19 +14,13 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-<<<<<<< Updated upstream
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Optional;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.BDDMockito.given;
-import static org.mockito.BDDMockito.then;
-=======
 import javax.persistence.EntityNotFoundException;
 import java.time.LocalDateTime;
 import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.BDDMockito.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
@@ -54,18 +44,6 @@ class ArticleCommentServiceTest {
     void givenArticleId_whenSearchingArticleComments_thenReturnsArticleComments() {
         // Given
         Long articleId = 1L;
-<<<<<<< Updated upstream
-        given(articleRepository.findById(articleId)).willReturn(Optional.of(
-                Article.of("title", "content", "#java"))
-        );
-
-        // When
-        List<ArticleCommentDto> articleComments = sut.searchArticleComment(articleId);
-
-        // Then
-        assertThat(articleComments).isNotNull();
-        then(articleRepository).should().findById(articleId);
-=======
         ArticleComment expected = createArticleComment("content");
         given(articleCommentRepository.findByArticle_Id(articleId)).willReturn(List.of(expected));
 
@@ -78,23 +56,12 @@ class ArticleCommentServiceTest {
                 .hasSize(1)
                 .first().hasFieldOrPropertyWithValue("content", expected.getContent());
         then(articleCommentRepository).should().findByArticle_Id(articleId);
->>>>>>> Stashed changes
     }
 
     @DisplayName("댓글 정보를 입력하면, 댓글을 저장한다.")
     @Test
     void givenArticleCommentInfo_whenSavingArticleComment_thenSavesArticleComment() {
         // Given
-<<<<<<< Updated upstream
-        given(articleCommentRepository.save(any(ArticleComment.class))).willReturn(null);
-
-        // When
-        sut.saveArticleComment(ArticleCommentDto.of(LocalDateTime.now(), "Uno", LocalDateTime.now(), "Uno", "comment"));
-
-        // Then
-        then(articleCommentRepository).should().save(any(ArticleComment.class));
-    }
-=======
         ArticleCommentDto dto = createArticleCommentDto("댓글");
         given(articleRepository.getReferenceById(dto.articleId())).willReturn(createArticle());
         given(articleCommentRepository.save(any(ArticleComment.class))).willReturn(null);
@@ -225,5 +192,4 @@ class ArticleCommentServiceTest {
                 "#java"
         );
     }
->>>>>>> Stashed changes
 }
