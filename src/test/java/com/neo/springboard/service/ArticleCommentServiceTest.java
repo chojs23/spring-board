@@ -22,11 +22,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.*;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.BDDMockito.*;
->>>>>>> Stashed changes
-
 @DisplayName("비즈니스 로직 - 댓글")
 @ExtendWith(MockitoExtension.class)
 class ArticleCommentServiceTest {
