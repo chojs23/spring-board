@@ -74,4 +74,7 @@ public class ArticleService {
     }
 
 
+    public Object getArticleCount() {
+        return articleRepository.count();
+    }
 }
