@@ -1,4 +1,4 @@
-package com.neo.springboard.domain.type;
+package com.neo.springboard.domain.constant;
 
 import lombok.Getter;
 
