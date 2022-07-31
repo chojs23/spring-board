@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.neo'
-version = '0.0.1-SNAPSHOT'
+version = 'v1.1'
 sourceCompatibility = '17'
 
 configurations {
@@ -35,7 +35,7 @@ dependencies {
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
-    
+
     // queryDSL 설정
     implementation "com.querydsl:querydsl-jpa"
     implementation "com.querydsl:querydsl-core"
@@ -68,6 +68,13 @@ sourceSets {
 // gradle clean 시에 QClass 디렉토리 삭제
 clean {
     delete file(generated)
+}
+
+//// Heroku 설정
+jar {
+    manifest {
+        attributes('Main-Class': 'com.neo.springboard.SpringBoardApplication')
+    }
 }
 
 
