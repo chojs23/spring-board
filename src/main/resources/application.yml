@@ -39,15 +39,17 @@ spring:
 
 
 ---
-#
-#spring:
-#  config:
-#    activate:
-#      on-profile: testdb
-#  datasource:
-#    url: jdbc:h2:mem:board;mode=mysql
-#    driver-class-name: org.h2.Driver
-#  sql:
-#    init:
-#      mode: always
-#  test.database.replace: none # 테스트에서 테스트 db를 따로 불러오지 않고 설정된 테스트 db 사용 = @AutoConfigureTestDatabase
+    url: ${JAWSDB_URL}
+spring:
+
+  config:
+    activate:
+      on-profile: heroku
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hibernate:
+  jpa:
+      ddl-auto: create
+  sql:
+    init:
+      mode: always
